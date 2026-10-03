@@ -1,0 +1,33 @@
+# Configuración del pipeline de generación de imágenes
+
+comfyui:
+  host: "localhost"
+  port: 8188
+  output_dir: "output"
+  
+ollama:
+  host: "localhost"
+  port: 11434
+  model: "huihui_ai/qwen3-abliterated:8b-v2"
+  
+generation:
+  default_width: 1024
+  default_height: 1024
+  default_steps: 20
+  default_cfg: 7.0
+  
+workflows:
+  sdxl_turbo:
+    steps: 4
+    cfg: 1.0
+    sampler: "euler_ancestral"
+    
+  sdxl_base:
+    steps: 20
+    cfg: 7.0
+    sampler: "dpmpp_2m"
+    
+batch:
+  max_queue: 100
+  concurrent_jobs: 2
+  retry_attempts: 3
